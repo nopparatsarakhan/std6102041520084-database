@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 04, 2019 at 02:17 AM
+-- Generation Time: Apr 11, 2019 at 02:37 AM
 -- Server version: 5.7.17-log
 -- PHP Version: 5.6.30
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `std6102041520122_2`
+-- Database: `std6102041520084`
 --
 
 -- --------------------------------------------------------
@@ -28,11 +28,11 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `viewing` (
   `id` int(11) NOT NULL,
-  `client_id` int(11) NOT NULL,
-  `property_id` int(11) NOT NULL,
-  `viewDate` date DEFAULT NULL,
-  `comment` text
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `client_no` int(11) NOT NULL,
+  `property_no` int(11) NOT NULL,
+  `view_date` date DEFAULT NULL,
+  `comment` text COLLATE utf8_unicode_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Indexes for dumped tables
@@ -42,9 +42,9 @@ CREATE TABLE `viewing` (
 -- Indexes for table `viewing`
 --
 ALTER TABLE `viewing`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `property_id_idx` (`property_id`),
-  ADD KEY `client_id_idx` (`client_id`);
+  ADD PRIMARY KEY (`id`,`client_no`,`property_no`),
+  ADD KEY `property_no_idx` (`property_no`),
+  ADD KEY `client_no_idx` (`client_no`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -55,16 +55,6 @@ ALTER TABLE `viewing`
 --
 ALTER TABLE `viewing`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `viewing`
---
-ALTER TABLE `viewing`
-  ADD CONSTRAINT `property_id` FOREIGN KEY (`property_id`) REFERENCES `property_for_rent` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

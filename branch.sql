@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 04, 2019 at 02:16 AM
+-- Generation Time: Apr 11, 2019 at 02:36 AM
 -- Server version: 5.7.17-log
 -- PHP Version: 5.6.30
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `std6102041520122_2`
+-- Database: `std6102041520084`
 --
 
 -- --------------------------------------------------------
@@ -29,10 +29,10 @@ SET time_zone = "+00:00";
 CREATE TABLE `branch` (
   `id` int(11) NOT NULL,
   `branch_no` int(11) NOT NULL,
-  `street` varchar(20) DEFAULT NULL,
-  `city` varchar(20) DEFAULT NULL,
-  `postcode` varchar(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `street` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
+  `city` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
+  `postcode` varchar(10) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Indexes for dumped tables
@@ -42,7 +42,8 @@ CREATE TABLE `branch` (
 -- Indexes for table `branch`
 --
 ALTER TABLE `branch`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`,`branch_no`),
+  ADD KEY `branch_no` (`branch_no`);
 
 --
 -- AUTO_INCREMENT for dumped tables
